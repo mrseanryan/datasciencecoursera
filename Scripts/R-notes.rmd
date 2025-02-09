@@ -1,0 +1,83 @@
+---
+title: "R rough notes"
+author: "sean"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# R - rough notes
+
+- R is a dialect of the S language
+
+- S was a Bell Labs internal statistialanaysis envronemtnt
+  - stable since 1998
+  - ownership transferred between varioua corporations (Bell Labs, Lucent Technology, Alcatel, TIBCO)
+  - S-PLUS is the most recent form of S
+  - data and analysis first (rather than programming-first)
+
+- R (1991, New Zealand) (public 1993)
+  - Ross Ihaka and Robert Gentleman
+  - 1997: Core group (people from S-PLUS)
+    - control the source code for R
+  - GNU license - free software
+
+## R drawbacks
+
+- based on S - 40 year old technology (1970s)
+- community/volunteer-based
+- memory - objects must fit in RAM
+
+## R parts
+
+- base system from CRAN
+- packages
+   - recommended packages
+   - quality control: documentation, tests
+
+- Documentation
+  - Introduction to R
+  - Writing R Extensions
+  - R data import and export manual
+    - data in/out
+
+## books
+
+Standard texts
+
+· Chambers (2008). Software for Data Analysis, Springer. (your textbook)
+
+· Chambers (1998). Programming with Data, Springer.
+  - 'the green book'
+
+· Venables & Ripley (2002). Modern Applied Statistics with S, Springer.
+
+· Venables & Ripley (2000). S Programming, Springer.
+
+· Pinheiro & Bates (2000). Mixed-Effects Models in S and S-PLUS, Springer.
+
+· Murrell (2005). R Graphics, Chapman & Hall/CRC Press.
+
+Other resources
+
+· Springer has a series of books called Use R!.
+
+· A longer list of books is at http://www.r-project.org/doc/bib/R-books.html
+
+Historical
+
+- Statistical Models in S - John Chambers and Trevor Hastie
+  - 'the white book'
+
+# Appendix
+
+tip: to render this (e.g. in Visual Code) - you need to install the rmarkdown package:
+
+```r
+install.packages('rmarkdown')
+```
