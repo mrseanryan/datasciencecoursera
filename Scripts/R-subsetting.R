@@ -96,3 +96,20 @@ airquality[1:6,]
 good <- complete.cases(airquality)
 airquality[good,][1:6,]
 plot(airquality)
+
+# counting how many bad values a column has
+# bad <- is.na(x$Ozone)
+# bad_count <- sum(as.numeric(bad))
+
+# mean of the good values
+# mean(x$Ozone[!bad])
+
+# drop all NA (bit like pandas df.dropna())
+# x_good = na.omit(x)
+
+# filter by 2 columns, logical index:
+# both = x_good$Temp > 90 & x_good$Ozone > 31
+# x_good[both,]
+
+# mean of a column:
+# mean(x$Solar.R)

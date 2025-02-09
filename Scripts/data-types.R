@@ -130,10 +130,13 @@ attributes(iris)
 
 df1 <- data.frame(foo=1:4, bar=c(T,T,F,F))
 df1
-nrow(df1)
-ncol(df1)
+nrow(df1) # count rows
+ncol(df1) # count columns
 attributes(df1)
 data.matrix(df1)
+
+head(x,2) # first 2 rows
+tail(x,2) # last 2 rows
 
 print("Names - R objects can have names -> self-describing objects")
 x <- 1:3
