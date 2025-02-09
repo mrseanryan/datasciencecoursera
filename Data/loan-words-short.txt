@@ -1,0 +1,11 @@
+# Loan word,Original language,Original word,Dictionary,Image,City,Country,NotesNoCommas,Word Type
+apartheid,Afrikaans,apartheid,https://www.merriam-webster.com/dictionary/apartheid,http://loremflickr.com/150/150/apartheid,Cape Town,South Africa,
+boomslang,Afrikaans,boomslang,https://www.merriam-webster.com/dictionary/boomslang,http://loremflickr.com/150/150/boomslang,Cape Town,South Africa,In Dutch: tree-snake
+dorp,Afrikaans,dorp,https://www.merriam-webster.com/dictionary/dorp,http://loremflickr.com/150/150/dorp,Cape Town,South Africa,
+kraal,Afrikaans,kraal,https://www.merriam-webster.com/dictionary/kraal,http://loremflickr.com/150/150/kraal,Cape Town,South Africa,
+veld,Afrikaans,veld,https://www.merriam-webster.com/dictionary/veld,http://loremflickr.com/150/150/veld,Cape Town,South Africa,
+wildebeest,Afrikaans,wildebees,https://www.merriam-webster.com/dictionary/wildebeest,http://loremflickr.com/150/150/wildebeest,Cape Town,South Africa,
+caucus,Amerindian,caucus,https://www.merriam-webster.com/dictionary/caucus,http://loremflickr.com/150/150/caucus,New York,USA,Algonquian - cau'-cau'-as'u ‘adviser’.
+Chicago,Amerindian,Chicago,https://www.merriam-webster.com/dictionary/Chicago,http://loremflickr.com/150/150/Chicago,Chicago,USA,The original Native American name meant "place of wild onions".
+coyote,Amerindian,coyotl,https://www.merriam-webster.com/dictionary/coyote,http://loremflickr.com/150/150/coyote,Chicago,USA,
+hickory,Amerindian,pawcohiccora,https://www.merriam-webster.com/dictionary/hickory,http://loremflickr.com/150/150/hickory,Chicago,USA,
