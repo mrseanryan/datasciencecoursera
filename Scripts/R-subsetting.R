@@ -106,6 +106,7 @@ plot(airquality)
 
 # drop all NA (bit like pandas df.dropna())
 # x_good = na.omit(x)
+# x_good = x[!is.na(x)] # alt way
 
 # filter by 2 columns, logical index:
 # both = x_good$Temp > 90 & x_good$Ozone > 31
@@ -113,3 +114,19 @@ plot(airquality)
 
 # mean of a column:
 # mean(x$Solar.R)
+
+# ===
+
+x[!is.na(x) & x > 0] # x where is not NA (not 'missing') and is positive.
+x[c(3,5,7)] # get the 3rd, 5th, 7th elements of x.
+x[c(-2, -5)] # get all x, except for 2nd, 5th elements.
+x[-c(2, 5)] # get all x, except for 2nd, 5th elements.
+
+# out of bounds
+x[0] # 0 - not NA :-(
+x[10000] # NA
+c(foo=11, bar=2) # named elements 'foo', 'bar'
+names(vect) # [1] "foo"  "bar"   # get the names
+names(vect) <- c("foo2", "bar2") # set the names
+vect["bar"] # bar\n  2
+vect[c("foo", "bar")]  # foo bar\n  11 2

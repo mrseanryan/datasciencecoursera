@@ -72,12 +72,30 @@ l1[2:3] # slicing to 2nd, 3rd
 print("matrices via matrix() - a special type of vector, with attribute 'dimension'")
 m <- matrix(1:6, nrow = 2, ncol = 3) # populated column-wise
 m
-dim(m)
+dim(m) # matrix has dim(ension) but a vector only has length
 
 print("alt: create a matrix directly from vector, by adding a dimension attribute")
 m <- 1:10
-dim(m) <- c(2, 5)
+dim(m) <- c(2, 5)  # setting dimension -> vector becomes a matrix
 m
+
+attributes(m)
+$dim
+[1] 2 5 # 2 x rows, 5 x columns
+
+class(m)
+[1] "matrix" "array"
+
+# matrix with data, via range:
+my_matrix2 <- matrix(data=1:20, nrow=4, ncol=5)
+print("Add a column at left of a matrix - via cbind() - BUT a matrix can only contain 1 type")
+patients <- c('Bill', 'Gina','Kelly', 'Sean')
+cbind(patients, my_matrix)
+print(" - better to use a data frame, which allows for a mix of types")
+my_data <- data.frame(patients, my_matrix)
+# set column names of a data frame:
+cnames <- c("patient", "age", "weight", "bp", "rating", "test")
+colnames(my_data) <- cnames
 
 print("alt: create a matrix via column-binding or row-binding")
 x <- 1:3
@@ -108,6 +126,9 @@ is.na(NaN) # NaN is NA, but not vice-versa
 is.nan(NA)
 is.nan(NaN)
 
+0/0 # NaN
+Inf - Inf # NaN
+
 x <- c(1,2,NA, 10, 3)
 x
 is.na(x)
@@ -115,8 +136,13 @@ is.nan(x)
 x <- c(1,2,NaN, NA, 4)
 is.na(x)
 is.nan(x)
+# note: NA - if used with logical operators -> NA
+my_na <- is.na(x)
+sum(my_na) # TRUE,FALSE is coerced to 1,0 -> so sum() can add them up.
 
 print("Data Frames")
+# matrices can only contain a single class of data.
+# while data frames can consist of many different classes of data.
 # - special type of list - each element of the list must have same length (row count)
 # - each element of the list is like a column
 # - DF can store different classes of objects in each column (just like lists)

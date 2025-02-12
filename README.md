@@ -4,3 +4,5 @@ My notes and workspace for the [Data Science: Foundations using R Specialization
 - [R - rough notes](./Scripts/R-notes.rmd)
 
 - [R - coding notes](./Scripts/R-code-notes-sean.r)
+
+- [SWIRL notes](./Scripts/swirl-notes.rmd)

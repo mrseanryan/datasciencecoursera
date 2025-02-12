@@ -1,0 +1,13 @@
+# SWIRL README
+
+- [swirl](https://swirlstats.com/students.html) - an R package to learn R
+  - SWIRL = Statistics With Interactive Learning
+
+```r
+install.packages("swirl")
+packageVersion("swirl")
+library(swirl)
+install_from_swirl("R Programming")
+
+swirl()
+```
