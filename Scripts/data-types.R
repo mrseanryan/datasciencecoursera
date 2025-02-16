@@ -80,11 +80,11 @@ dim(m) <- c(2, 5)  # setting dimension -> vector becomes a matrix
 m
 
 attributes(m)
-$dim
-[1] 2 5 # 2 x rows, 5 x columns
+#$dim
+#[1] 2 5 # 2 x rows, 5 x columns
 
 class(m)
-[1] "matrix" "array"
+#[1] "matrix" "array"
 
 # matrix with data, via range:
 my_matrix2 <- matrix(data=1:20, nrow=4, ncol=5)
