@@ -42,3 +42,23 @@ f_outer <- function(x, y, ...) {
     f_other(x, y, ...)
 }
 # ... is also used for generic functions (dispatch by data type?)
+
+
+# Rewriting to prefix form
+#
+# An interesting property of R is that every infix, replacement, or special form can be rewritten in prefix form.
+# ref - https://adv-r.hadley.nz/functions.html
+
+x <- c(1, 2, 3)
+y <- c(10, 20, 30)
+
+x + y
+`+`(x, y)
+
+df <- data.frame(foo = 1:4, bar = c(TRUE, TRUE, FALSE, FALSE))
+
+names(df) <- c("x", "y")
+`names<-`(df, c("x", "y"))
+
+for (i in 1:5) print(i)
+`for`(i, 1:5, print(i))

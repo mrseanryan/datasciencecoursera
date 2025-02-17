@@ -1,4 +1,16 @@
-print("R scoping rules")
+print_section <- function(message) {
+    separator <- "=== === ==="
+
+    print_line <- function() {
+        print(paste(separator, separator, separator))
+    }
+
+    print_line()
+    print(paste(separator, message, separator))
+    print_line()
+}
+
+print_section("R scoping rules")
 
 # When trying to bind a value to a symbol, R searches through a series of 'environments' (scopes?).
 # - environment = a colletion of (symbol, value) pairs
@@ -11,13 +23,13 @@ search() # lists teh environments in order
 #
 # separate namespaces for functions and non-functions (!)
 # so can have a 'c' vector and a 'c' function (but only 1 in-scope at a time).
-c <- 3
-c <- function(x) {
+c3 <- 3
+c3 <- function(x) {
     x^2
 }
 
-c(2)
-print(c)
+c3(2)
+print(c3)
 
 # R uses lexical (static) scoping
 # - this helps to simplify statistical computations
@@ -66,8 +78,57 @@ g <- function(x) {
 
 f(3) # 34 <- 4 + 3 * 10
 
-# similar in Scheme, Perl, Python, Common List (all programming languages converge to Lisp!)
+# R Lexical Scoping is similar in Scheme, Perl, Python, Common List (all programming languages converge to Lisp!)
 
 # consequences of Lexical scoping:
 # - ALL objects must be stored in RAM
 # all functions must carry a pointer to its defining environment (can be to almost anywhere)
+
+print_section("Optimization")
+# optimization (R: minimization) functions - e.g. to minimize cost
+# optim, nlm, optimize - arg is a vector of params (e.g. a log-likelihood)
+# - goal: allow user to fix certain parameters
+
+print("Maximizing a Normal likelihood")
+
+make.NegLogLik <- function(data, fixed = c(FALSE, FALSE)) {
+    params <- fixed
+    function(p) {
+        params[!fixed] <- p
+        mu <- params[1]
+        sigma <- params[2]
+        a <- -0.5 * length(data) * log(2 * pi * sigma^2)
+        b <- -0.5 * sum((data - mu)^2) / (sigma^2)
+        -(a + b)
+    }
+}
+
+set.seed(1)
+normals <- rnorm(100, 1, 2)
+nLL <- make.NegLogLik(normals)
+
+nLL
+ls(environment(nLL))
+
+optim(c(c(0, 1)), nLL)$par
+
+optim(c(mu = 0, sigma = 1), nLL)$par
+
+# fixing sigma
+nLL <- make.NegLogLik(normals, c(FALSE, 2))
+optimize(nLL, c(-1, 3))$minimum
+
+# fixing mu
+nLL <- make.NegLogLik(normals, c(1, FALSE))
+optimize(nLL, c(1e-6, 10))$minimum
+
+print("Plot the likelihood")
+nLL <- make.NegLogLik(normals, c(1, FALSE)) # mu=1
+x <- seq(1.7, 1.9, len = 100)
+y <- sapply(x, nLL)
+plot(x, exp(-(y - min(y))), type = "l")
+
+nLL <- make.NegLogLik(normals, c(FALSE, 2)) # sigma=2
+x <- seq(0.5, 1.5, len = 100)
+y <- sapply(x, nLL)
+plot(x, exp(-(y - min(y))), type = "l")
