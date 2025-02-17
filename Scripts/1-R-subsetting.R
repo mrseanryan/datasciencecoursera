@@ -17,8 +17,8 @@ x[u_logical_vector]
 
 # Subsetting Lists
 x <- list(foo = 1:4, bar = 0.6)
-x[1]
-x[[1]]
+x[1] # returns same type (e.g. a data frame)
+x[[1]] # returns 'member type' (e.g. the values of a column of a data frame)
 
 #x$foo
 x$foo
