@@ -10,6 +10,10 @@ My notes and workspace for the [Data Science: Foundations using R Specialization
 
 - [SWIRL notes](./Scripts/swirl-notes.rmd)
 
+# R quotes
+
 > Everything that exists is an object.
 > Everything that happens is a function call.
 > — John Chambers
+
+> R has developed a special representation of dates and times

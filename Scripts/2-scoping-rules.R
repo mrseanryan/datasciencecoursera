@@ -1,14 +1,4 @@
-print_section <- function(message) {
-    separator <- "=== === ==="
-
-    print_line <- function() {
-        print(paste(separator, separator, separator))
-    }
-
-    print_line()
-    print(paste(separator, message, separator))
-    print_line()
-}
+source("Scripts/utils.print.R")
 
 print_section("R scoping rules")
 
@@ -84,7 +74,7 @@ f(3) # 34 <- 4 + 3 * 10
 # - ALL objects must be stored in RAM
 # all functions must carry a pointer to its defining environment (can be to almost anywhere)
 
-print_section("Optimization")
+print_section("Optimization and fixed parameters")
 # optimization (R: minimization) functions - e.g. to minimize cost
 # optim, nlm, optimize - arg is a vector of params (e.g. a log-likelihood)
 # - goal: allow user to fix certain parameters

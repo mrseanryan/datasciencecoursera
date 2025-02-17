@@ -1,12 +1,12 @@
-sum <- function(x, y) {
+sum2 <- function(x, y) {
     x + y
 }
 
-formals(sum)
+formals(sum2)
 
 mydata <- rnorm(100)
 formals(sd)
-sd(mydata)
+sd(mydata) # sd = Standard Deviation
 sd(x = mydata)
 sd(x = mydata, na.rm = FALSE)
 sd(na.rm = FALSE, x = mydata)
@@ -62,3 +62,17 @@ names(df) <- c("x", "y")
 
 for (i in 1:5) print(i)
 `for`(i, 1:5, print(i))
+
+decorate <- function(func, dat){
+  print(paste("decorating func", as.character(substitute(func))))
+
+  print(dat)
+  func(dat)
+}
+decorate(sum, c(1,2,3))
+
+# Custom binary operator
+"%p%" <- function(...){ # Remember to add arguments!
+  paste(...)
+}
+"I" %p% "like" %p% "icecream"
