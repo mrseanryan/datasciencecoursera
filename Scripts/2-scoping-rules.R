@@ -15,7 +15,7 @@ search() # lists teh environments in order
 # so can have a 'c' vector and a 'c' function (but only 1 in-scope at a time).
 c3 <- 3
 c3 <- function(x) {
-    x^2
+  x^2
 }
 
 c3(2)
