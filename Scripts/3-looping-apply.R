@@ -2,6 +2,8 @@ source("Scripts/utils.print.R")
 
 print_section("R looking - apply")
 
+print("Split-Apply-Combine methodology")
+
 # variants of 'applying a function':
 # lapply - apply to elements of a List
 # sapply - like lapply but try to Simplify the result
@@ -16,6 +18,10 @@ str(lapply)
 x <- list(a = 1:5, b = rnorm(10))
 print("apply mean() to the elements of x")
 lapply(x, mean)
+
+lapply(airquality, class)  # show class of each column
+unique_values = lapply(airquality, unique)  # show unique values of each column
+sapply(unique_values, length)  # count the unique values
 
 x <- 1:4
 lapply(x, runif) # apply runif(count of variables to generate) - random number generator
@@ -119,3 +125,26 @@ interaction(race, gender)
 
 str(split(x, list(f1, f2)))  # implicitly calls interaction(), WITH empty levels.
 str(split(x, list(f1, f2), drop=TRUE))  # drop empty levels.
+
+print_section("vapply (Verbose apply?) - safer form of sapply()")
+# Whereas sapply() tries to 'guess' the correct format of the result,
+# | vapply() allows you to specify it explicitly. If the result doesn't match
+# | the format you specify, vapply() will throw an error, causing the operation
+# | to stop. This can prevent significant problems in your code that might be
+# | caused by getting unexpected return values from sapply().
+vapply(airquality, class, character(1))  # column types
+table(airquality$Ozone)
+
+# tapply(flags$animate, flags$landmass, mean) - mean animate, by landmass
+# tapply(flags$population, flags$red, summary) - summary of population, by flag is/is-not red
+# tapply(flags$population, flags$landmass, summary) - summary of population, by landmass
+tapply(iris$Sepal.Length, iris$Species, mean) # mean of Sepal.length, by Species
+colMeans(iris[1,1:4]) # means of those columns
+apply(iris[1,1:4], 2, mean) # means of those columns (2 is column)
+
+tapply(mtcars$mpg, mtcars$cyl, mean) # average MPG by cylinders
+sapply(split(mtcars$mpg, mtcars$cyl), mean) # average MPG by cylinders
+with(mtcars, tapply(mpg, cyl, mean)) # average MPG by cylinders
+
+mean_hp <- tapply(mtcars$hp, mtcars$cyl, mean) # average HP by cylinder
+round(mean_hp[3] - mean_hp[1]) # rounded difference of average HP, for 8 vs 4 cylinders
