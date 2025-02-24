@@ -10,6 +10,10 @@ My notes and workspace for the [Data Science: Foundations using R Specialization
 
 - [SWIRL notes](./Scripts/swirl-notes.rmd)
 
+# My other R repositories
+
+- https://github.com/mrseanryan/datasciencecoursera_ProgrammingAssignment2
+
 # R quotes
 
 > Everything that exists is an object.
