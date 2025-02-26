@@ -90,6 +90,12 @@ y <- b0 + b1 * x + e
 summary(y)
 plot(x, y, main="normal distribution")
 
+set.seed(10)
+x <- rep(0:1, each = 5)
+e <- rnorm(10, 0, 20)
+y <- 0.5 + 2 * x + e
+y
+
 print("x is binomial (binary) instead of normal distribution")
 set.seed(10)
 x <- rbinom(100, size=1, prob=0.5)
