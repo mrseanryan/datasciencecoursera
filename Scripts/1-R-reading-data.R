@@ -56,3 +56,5 @@ x_ram_mb = round(x_rows * x_cols * x_bytes_per_col / bytes_per_mb * r_factor)
 print(paste("RAM needed:", x_ram_mb, "MB"))
 mb_per_gb = 2^10
 print(paste("RAM needed:",round(x_ram_mb / mb_per_gb, 2), "GB"))
+
+object.size(data1)  # RAM needed, in bytes

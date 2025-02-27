@@ -58,7 +58,10 @@ qnorm(x, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE) # log.p logarithmic
 # rgamma() - generate Random Gamma variates
 
 # Exponential distribution
-#rexp() - generate Random Exponential variates
+# rexp() - generate Random Exponential variates
+
+# chi-squared distribution
+# rchisq()
 
 print("Set seed so is reproducible")
 set.seed(42)
@@ -70,6 +73,10 @@ rnorm(5) # series 1
 rpois(10, 1)
 rpois(10, 2)
 rpois(10, 20)
+rpois(5, 10) # 5 numbers, with mean=10.
+my_pois <- replicate(100, rpois(5, 10))  # 3 groups of [5 numbers, with mean=10].
+cm <- colMeans(my_pois)
+hist(cm)  # peak should be around the mean=10
 
 ppois(2, 2) # cumulative distribution -> Probabilty(x<=2) if rate=2
 ppois(4, 2) # cumulative distribution -> Probabilty(x<=4) if rate=2
@@ -88,7 +95,7 @@ e <- rnorm(100, mean = 0, sd = 2)
 
 y <- b0 + b1 * x + e
 summary(y)
-plot(x, y, main="normal distribution")
+plot(x, y, main = "normal distribution")
 
 set.seed(10)
 x <- rep(0:1, each = 5)
@@ -98,11 +105,11 @@ y
 
 print("x is binomial (binary) instead of normal distribution")
 set.seed(10)
-x <- rbinom(100, size=1, prob=0.5)
-e <- rnorm(100, mean = 0, sd=2)
+x <- rbinom(100, size = 1, prob = 0.5)
+e <- rnorm(100, mean = 0, sd = 2)
 y <- b0 + b1 * x + e
 summary(y)
-plot(x, y, main="binomial (binary) distribution")
+plot(x, y, main = "binomial (binary) distribution")
 
 print("Posson model - y ~ Poisson(u)")
 set.seed(1)
@@ -112,7 +119,7 @@ b1 <- 0.3
 log.mu <- b0 + b1 * x
 y <- rpois(100, exp(log.mu))
 summary(y)
-plot(x, y, main="Poisson distribution")
+plot(x, y, main = "Poisson distribution")
 
 print_section("Random Sampling")
 print("Draw a random sample from a set of (scalar) objects")
@@ -123,3 +130,16 @@ sample(letters, 5)
 sample(1:10) # permutation
 sample(1:10)
 sample(1:10, replace = TRUE) # sample with replacement (can repeat)
+
+sample(1:6, 4, replace = TRUE) # simulate rolling 4 x 6-sides dice
+sample(LETTERS) # alphabet, re-arranged
+
+# Draw a sample of size 100 from the vector c(0,1)
+# - probabilities 0 (tails) and 1 (heads) are 0.3, 0.7 respectively.
+flips <- sample(c(0, 1), 100, prob = c(0.3, 0.7), replace = TRUE)
+sum(flips) # the number of 'heads'
+
+# A binomial random variable represents the number of 'successes' (heads) in
+# a given number of independent 'trials' (coin flips)
+rbinom(1, size = 100, prob = 0.7) # count(1) when prob=0.7
+rbinom(100, size=1, prob=0.7) # lists the 0's and 1's
