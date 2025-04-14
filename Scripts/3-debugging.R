@@ -2,6 +2,8 @@ source("Scripts/utils.print.R")
 
 print_section("Debugging R")
 
+rm(list=ls()) # clears out all variables!
+
 browser() # sets a breakpoint at that line, like Python's pdf.set_trace()
 
 traceback()  # prints stack trace
